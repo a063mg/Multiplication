@@ -1,5 +1,5 @@
 # Multiplication
-Repository for Big Homework.
+Repository for Big Homework. By Alekseev Artem 191-1. 
 
 This is repository for Big HW ads Workshop. 
 
