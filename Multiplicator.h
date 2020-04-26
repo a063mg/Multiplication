@@ -281,17 +281,13 @@ void quick_test(const int& k, const int& step=1, const int& attempts=3) {
     //output<<"Length"<<" "<<"DAC"<<" "<<"KM"<<" "<<"GSM"<<endl;
 
     for (int i = 0; i <= k; i += step){
-
         double sum1 = 0, sum2 = 0, sum3 = 0;
-
         for (int j = 0; j < attempts; j++){ 
             sum1 += DAC::time(i);
             sum2 += KM::time(i);
             sum3 += GSM::time(i);
         }
-
         output<<i<<","<<sum1/attempts<<","<<sum2/attempts<<","<<sum3/attempts<<endl;
-
         //cout<<"Ok: "<<i<<endl;
     }
 
