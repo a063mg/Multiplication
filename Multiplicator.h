@@ -24,7 +24,7 @@ public:
     static bool test();
 };
 
-// Grade School Multiplication algorithm
+// Divide and Conquer Multiplication algorithm
 class DAC {
 public:
     static LargeInteger multiply(const LargeInteger& num1, const LargeInteger& num2);
@@ -273,7 +273,7 @@ void store(const vector<vector<double> >& results){
     output.close();
 }
 
-// Writes results immediatelyafter testing (In case of termination of this function, all calculated results will be saved) Also, it writes length of number.
+// Writes results immediately after testing (In case of termination of this function, all calculated results will be saved) Also, it writes length of number.
 void quick_test(const int& k, const int& step=1, const int& attempts=3) {
     std::ofstream output;
     output.open("output.csv");
