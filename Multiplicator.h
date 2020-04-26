@@ -232,7 +232,7 @@ bool DAC::test(){
 
 
 // Function to test algorithms and write results in vector
-vector<vector<double> > get_results(const int& k, const int& step=1, const int& attemps=3) {
+vector<vector<double> > get_results(const int& k, const int& step=1, const int& attempts=3) {
 
     vector<vector<double> > results;
     vector<double> row;
@@ -244,14 +244,14 @@ vector<vector<double> > get_results(const int& k, const int& step=1, const int& 
 
         double sum1 = 0, sum2 = 0, sum3 = 0;
 
-        for (int j = 0; j < attemps; j++){ 
+        for (int j = 0; j < attempts; j++){ 
             sum1 += DAC::time(i);
             sum2 += KM::time(i);
             sum3 += GSM::time(i);
         }
-        row.push_back(sum1/attemps);
-        row.push_back(sum2/attemps);
-        row.push_back(sum3/attemps);
+        row.push_back(sum1/attempts);
+        row.push_back(sum2/attempts);
+        row.push_back(sum3/attempts);
 
         results.push_back(row);
         row.clear();
@@ -274,7 +274,7 @@ void store(const vector<vector<double> >& results){
 }
 
 // Writes results immediatelyafter testing (In case of termination of this function, all calculated results will be saved) Also, it writes length of number.
-void quick_test(const int& k, const int& step=1, const int& attemps=3) {
+void quick_test(const int& k, const int& step=1, const int& attempts=3) {
     std::ofstream output;
     output.open("output.csv");
 
@@ -284,13 +284,13 @@ void quick_test(const int& k, const int& step=1, const int& attemps=3) {
 
         double sum1 = 0, sum2 = 0, sum3 = 0;
 
-        for (int j = 0; j < attemps; j++){ 
+        for (int j = 0; j < attempts; j++){ 
             sum1 += DAC::time(i);
             sum2 += KM::time(i);
             sum3 += GSM::time(i);
         }
 
-        output<<i<<","<<sum1/attemps<<","<<sum2/attemps<<","<<sum3/attemps<<endl;
+        output<<i<<","<<sum1/attempts<<","<<sum2/attempts<<","<<sum3/attempts<<endl;
 
         //cout<<"Ok: "<<i<<endl;
     }
