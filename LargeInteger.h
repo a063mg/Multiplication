@@ -97,15 +97,28 @@ LargeInteger& LargeInteger::operator-=(const LargeInteger& other) {
     if (other.isZero())
         return *this;
 
-    LargeInteger nc_other = other; //non-const "other" variablie which can be resized 
-
-    make_equal(nc_other, *this);
-    size_t n = size();
+    size_t n1 = other.size();
+    size_t n2 = size(); 
+    size_t m = min(n1, n2);
+    size_t diff = n2 - n1; 
 
     int sum, carry;
     carry = 0;
-    for (int i = n-1; i >= 0; i--) {
-        sum = index(i) - nc_other.index(i) - carry;
+    for (int i = m-1; i >= 0; i--) {
+        sum = index(i+diff) - other.index(i) - carry;
+        if (sum >= 0){
+            num[i+diff] = (sum+'0');
+            carry = 0;
+        }
+        else{
+            num[i+diff] = ((sum+10)+'0');
+            carry = 1;
+        }
+    }
+    // Add remaining digits of num
+    for (int i=diff-1; i >= 0; i--) 
+    { 
+        sum = index(i) - carry; 
         if (sum >= 0){
             num[i] = (sum+'0');
             carry = 0;
@@ -114,7 +127,7 @@ LargeInteger& LargeInteger::operator-=(const LargeInteger& other) {
             num[i] = ((sum+10)+'0');
             carry = 1;
         }
-    }
+    } 
 
     removeLeftZeros();
 
