@@ -1,8 +1,4 @@
 # Multiplication
-Repository for Big Homework. By Alekseev Artem 191-1. 
-
-This is repository for Big HW ads Workshop. 
-
 The main file is project.cpp. It includes 2 header file LargeInteger.h for LargeInteger class and Multiplicator.h for algorithm classes.
 
 Uvaliable methods at main:
